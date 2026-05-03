@@ -1,6 +1,6 @@
 <div align="center">
 
-# TuPrompter / 图Prompter
+# TuPrompt
 
 **A Chrome extension that turns web images into AI-ready prompts**
 
@@ -20,11 +20,11 @@
 ---
 
 > [!TIP]
-> **TuPrompter** is built to shorten the path from *see image -> break it down -> write prompt* into a single right-click action.
+> **TuPrompt** is built to shorten the path from *see image -> break it down -> write prompt* into a single right-click action.
 
 ## ✨ Overview
 
-TuPrompter is a Chrome extension for analyzing images on the web and generating prompts that can be used with tools such as Midjourney, Stable Diffusion, DALL-E, and Adobe Firefly.
+TuPrompt is a Chrome extension for analyzing images on the web and generating prompts that can be used with tools such as Midjourney, Stable Diffusion, DALL-E, and Adobe Firefly.
 
 Its purpose is simple:
 
@@ -67,12 +67,12 @@ Its purpose is simple:
 2. Choose “Load unpacked” and load this project folder.
 3. Click the extension icon and configure the API key for the model you want to use.
 4. Open any webpage and right-click an image.
-5. Choose a model under the “图Prompter” menu.
+5. Choose a model under the “TuPrompt” menu.
 6. Copy the generated English prompt or Chinese annotation from the result popup.
 
 ## 🔄 Data Flow
 
-TuPrompter does not use its own backend server. When the user explicitly triggers image analysis, the extension reads the selected image URL or image data from the current page and sends it to the selected third-party AI provider API. API keys are stored in Chrome extension storage and used only for requests to the chosen provider.
+TuPrompt does not use its own backend server. When the user explicitly triggers image analysis, the extension reads the selected image URL or image data from the current page and sends it to the selected third-party AI provider API. API keys are stored in Chrome extension storage and used only for requests to the chosen provider.
 
 ## 🛠️ Local Development
 

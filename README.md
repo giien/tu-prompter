@@ -1,6 +1,6 @@
 <div align="center">
 
-# 图Prompter / TuPrompter
+# TuPrompt
 
 **从网页图片直接生成 AI 绘图提示词的 Chrome 扩展**
 
@@ -20,11 +20,11 @@
 ---
 
 > [!TIP]
-> **图Prompter** 适合在 Pinterest、商品页、海报图、灵感图等场景里，直接把“看图 -> 拆解 -> 写 Prompt”这条链路缩短成一次右键操作。
+> **TuPrompt** 适合在 Pinterest、商品页、海报图、灵感图等场景里，直接把“看图 -> 拆解 -> 写 Prompt”这条链路缩短成一次右键操作。
 
 ## ✨ 项目介绍
 
-图Prompter 是一个 Chrome 扩展，用于在网页图片上右键分析画面内容，并生成适合 Midjourney、Stable Diffusion、DALL-E、Adobe Firefly 等 AI 绘图工具使用的提示词。
+TuPrompt 是一个 Chrome 扩展，用于在网页图片上右键分析画面内容，并生成适合 Midjourney、Stable Diffusion、DALL-E、Adobe Firefly 等 AI 绘图工具使用的提示词。
 
 它的目标很直接：
 
@@ -67,12 +67,12 @@
 2. 选择“加载已解压的扩展程序”，加载本项目目录。
 3. 点击扩展图标，配置想使用的模型 API Key。
 4. 打开任意网页，在图片上右键。
-5. 选择“图Prompter”下的模型菜单，等待分析结果。
+5. 选择“TuPrompt”下的模型菜单，等待分析结果。
 6. 在结果弹窗中复制英文 Prompt 或中文注释。
 
 ## 🔄 数据流说明
 
-图Prompter 不使用自有服务器。扩展会在用户主动右键分析图片时，从当前网页获取图片地址或图片数据，并发送到用户选择的第三方 AI 服务商 API。API Key 保存在 Chrome 扩展存储中，用于向对应服务商发起请求。
+TuPrompt 不使用自有服务器。扩展会在用户主动右键分析图片时，从当前网页获取图片地址或图片数据，并发送到用户选择的第三方 AI 服务商 API。API Key 保存在 Chrome 扩展存储中，用于向对应服务商发起请求。
 
 ## 🛠️ 本地开发
 

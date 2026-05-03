@@ -2,7 +2,7 @@
 
 Thank you for supporting this project.
 
-If TuPrompter helps your work or learning, you can support ongoing maintenance and future improvements through voluntary donations.
+If TuPrompt helps your work or learning, you can support ongoing maintenance and future improvements through voluntary donations.
 
 Sponsorship or donation does not grant commercial rights, trademark rights, or a commercial license.
 
@@ -24,7 +24,7 @@ Note: the donation QR codes may contain masked display names or profile images a
 
 感谢你支持这个项目。
 
-如果 TuPrompter 对你的工作或学习有帮助，欢迎通过自愿赞助支持项目维护和后续改进。
+如果 TuPrompt 对你的工作或学习有帮助，欢迎通过自愿赞助支持项目维护和后续改进。
 
 赞助或捐赠不代表获得商用授权、商标授权或任何商业许可。
 

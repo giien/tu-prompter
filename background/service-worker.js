@@ -220,7 +220,7 @@ async function ensureContextMenus() {
 
   chrome.contextMenus.create({
     id: 'image-prompter-root',
-    title: '图Prompter',
+    title: 'TuPrompt',
     contexts: ['page', 'image', 'link']
   });
 
@@ -265,13 +265,13 @@ function removeAllContextMenus() {
 
 chrome.runtime.onInstalled.addListener(() => {
   ensureContextMenus().catch((error) => {
-    console.error('[图Prompter] 初始化右键菜单失败:', error);
+    console.error('[TuPrompt] 初始化右键菜单失败:', error);
   });
 });
 
 chrome.runtime.onStartup.addListener(() => {
   ensureContextMenus().catch((error) => {
-    console.error('[图Prompter] 恢复右键菜单失败:', error);
+    console.error('[TuPrompt] 恢复右键菜单失败:', error);
   });
 });
 
@@ -281,7 +281,7 @@ async function getContextTarget(tabId) {
   try {
     return await sendTabMessage(tabId, { type: 'getContextTarget' });
   } catch (error) {
-    console.error('[图Prompter] 获取右键目标失败:', error);
+    console.error('[TuPrompt] 获取右键目标失败:', error);
     return null;
   }
 }
@@ -314,13 +314,13 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
   if (menuItemId === SELECT_REGION_MENU_ID) {
     handleSelectRegionClick(tab.id, menuItemId).catch((error) => {
-      console.error('[图Prompter] 启动框选失败:', error);
+      console.error('[TuPrompt] 启动框选失败:', error);
     });
     return;
   }
 
   handleMenuClick(info, tab.id, menuItemId).catch((error) => {
-    console.error('[图Prompter] 右键分析失败:', error);
+    console.error('[TuPrompt] 右键分析失败:', error);
   });
 });
 
@@ -344,7 +344,7 @@ async function handleMenuClick(info, tabId, menuItemId) {
     model: model.name,
     message: '正在识别右键图片，请稍候...'
   }).catch((error) => {
-    console.error('[图Prompter] 无法显示初始进度:', error);
+    console.error('[TuPrompt] 无法显示初始进度:', error);
   });
 
   const imageUrl = await resolveImageUrl(info, tabId);
@@ -375,7 +375,7 @@ async function handleMenuClick(info, tabId, menuItemId) {
       prompt: result.prompt,
       templateKey: result.templateKey
     }).catch((error) => {
-      console.error('[图Prompter] 保存历史记录失败:', error);
+      console.error('[TuPrompt] 保存历史记录失败:', error);
     });
   }
   sendTabUiMessage(tabId, {
@@ -384,7 +384,7 @@ async function handleMenuClick(info, tabId, menuItemId) {
     ...result,
     model: model.name
   }).catch((error) => {
-    console.error('[图Prompter] 无法发送结果到页面:', error);
+    console.error('[TuPrompt] 无法发送结果到页面:', error);
   });
 }
 
@@ -672,7 +672,7 @@ async function imageUrlToPayload(imageUrl, options = {}) {
       imageBlob = await convertImageBlobToJpeg(blob);
       mimeType = JPEG_MIME;
     } catch (error) {
-      console.warn('[图Prompter] 图片转 JPEG 失败，继续使用原图:', error);
+      console.warn('[TuPrompt] 图片转 JPEG 失败，继续使用原图:', error);
     }
   }
 
@@ -770,7 +770,7 @@ async function handleAnalyze(imageUrl, requestedModelKey) {
       prompt: result.prompt,
       templateKey: result.templateKey
     }).catch((error) => {
-      console.error('[图Prompter] 保存历史记录失败:', error);
+      console.error('[TuPrompt] 保存历史记录失败:', error);
     });
   }
 
@@ -817,7 +817,7 @@ async function handleAnalyzeSelection(msg, sender) {
         prompt: result.prompt,
         templateKey: result.templateKey
       }).catch((error) => {
-        console.error('[图Prompter] 保存框选历史失败:', error);
+        console.error('[TuPrompt] 保存框选历史失败:', error);
       });
     }
 

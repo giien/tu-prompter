@@ -1,12 +1,12 @@
-# 图Prompter 隐私政策
+# TuPrompt 隐私政策
 
 生效日期：2026-04-28
 
-图Prompter 是一个用于分析网页图片并生成 AI 绘图提示词的 Chrome 扩展。本隐私政策说明扩展如何处理数据。
+TuPrompt 是一个用于分析网页图片并生成 AI 绘图提示词的 Chrome 扩展。本隐私政策说明扩展如何处理数据。
 
 ## 我们收集或处理的信息
 
-图Prompter 只在用户主动使用扩展功能时处理以下信息：
+TuPrompt 只在用户主动使用扩展功能时处理以下信息：
 
 - 当前右键选择的图片地址或图片数据
 - 用户在扩展设置中填写的 API Key
@@ -23,7 +23,7 @@ API Key 仅用于向用户选择的服务商发起授权请求。扩展不会将
 
 ## 数据存储
 
-API Key、模型选择和自定义 API 配置保存在 Chrome 扩展存储中。图Prompter 不运营自有服务器，也不会在开发者服务器上保存用户图片、API Key 或生成结果。
+API Key、模型选择和自定义 API 配置保存在 Chrome 扩展存储中。TuPrompt 不运营自有服务器，也不会在开发者服务器上保存用户图片、API Key 或生成结果。
 
 ## 第三方服务
 
@@ -33,7 +33,7 @@ API Key、模型选择和自定义 API 配置保存在 Chrome 扩展存储中。
 
 ## 权限说明
 
-图Prompter 使用以下 Chrome 权限：
+TuPrompt 使用以下 Chrome 权限：
 
 - `storage`：保存 API Key、模型选择和自定义 API 配置。
 - `contextMenus`：在图片右键菜单中提供生成提示词入口。
@@ -44,7 +44,7 @@ API Key、模型选择和自定义 API 配置保存在 Chrome 扩展存储中。
 
 ## 数据共享
 
-图Prompter 不出售、出租或转让用户数据。除用户主动选择的 AI 服务商或自定义 API Endpoint 外，扩展不会向其他第三方共享图片、API Key 或生成结果。
+TuPrompt 不出售、出租或转让用户数据。除用户主动选择的 AI 服务商或自定义 API Endpoint 外，扩展不会向其他第三方共享图片、API Key 或生成结果。
 
 ## 用户控制
 

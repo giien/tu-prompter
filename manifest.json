@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "图Prompter",
+  "name": "TuPrompt",
   "version": "1.0.0",
   "description": "右键图片生成AI绘图提示词，支持GPT-4o/Claude/Gemini/海螺/豆包/智谱/通义/Jeniya/自定义API",
   "permissions": [

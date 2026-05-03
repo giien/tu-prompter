@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in improving TuPrompter.
+Thanks for your interest in improving TuPrompt.
 
 ## Before submitting changes
 
@@ -31,4 +31,3 @@ node --check popup/popup.js
 ## License reminder
 
 By contributing, you agree that your contributions are provided under the repository license and may be used in future non-commercial releases of this project.
-

@@ -2,7 +2,7 @@
 
 ## 扩展名称
 
-图Prompter
+TuPrompt
 
 ## 简短描述
 
@@ -10,7 +10,7 @@
 
 ## 详细描述
 
-图Prompter 是一个面向设计师、AI 绘图用户和内容创作者的 Chrome 扩展。你可以在 Pinterest、设计灵感网站、电商页面或普通网页图片上右键，选择 AI 模型分析图片，并生成可直接用于 Midjourney、Stable Diffusion、DALL-E、Adobe Firefly 等工具的英文 Prompt。
+TuPrompt 是一个面向设计师、AI 绘图用户和内容创作者的 Chrome 扩展。你可以在 Pinterest、设计灵感网站、电商页面或普通网页图片上右键，选择 AI 模型分析图片，并生成可直接用于 Midjourney、Stable Diffusion、DALL-E、Adobe Firefly 等工具的英文 Prompt。
 
 扩展会同时生成中文注释，帮助你理解图片的主体、构图、色彩、光影、风格和适用场景。
 
@@ -28,13 +28,13 @@
 
 1. 点击扩展图标，配置模型 API Key。
 2. 在网页图片上点击右键。
-3. 选择“图Prompter”下的模型。
+3. 选择“TuPrompt”下的模型。
 4. 等待 AI 分析图片。
 5. 复制英文 Prompt 或中文注释。
 
 隐私说明：
 
-图Prompter 不运营自有服务器。只有当你主动右键分析图片时，扩展才会把图片发送到你选择的 AI 服务商或自定义 API Endpoint。API Key 保存在 Chrome 扩展存储中，不会发送到开发者服务器。
+TuPrompt 不运营自有服务器。只有当你主动右键分析图片时，扩展才会把图片发送到你选择的 AI 服务商或自定义 API Endpoint。API Key 保存在 Chrome 扩展存储中，不会发送到开发者服务器。
 
 ## 分类建议
 
@@ -52,7 +52,7 @@ AI prompt, image prompt, Midjourney, Stable Diffusion, Pinterest, image analysis
 
 ### contextMenus
 
-用于在图片右键菜单中显示“图Prompter”分析入口。
+用于在图片右键菜单中显示“TuPrompt”分析入口。
 
 ### activeTab
 

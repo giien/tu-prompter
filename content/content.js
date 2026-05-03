@@ -540,7 +540,7 @@
 
     const title = document.createElement('span');
     title.className = 'ip-title';
-    title.textContent = '图Prompter · AI 提示词生成';
+    title.textContent = 'TuPrompt · AI 提示词生成';
 
     const modelTag = document.createElement('div');
     modelTag.className = 'ip-model-tag';
@@ -709,7 +709,7 @@
         window.setTimeout(() => {
           button.textContent = defaultText;
         }, COPY_RESET_DELAY);
-        console.error('[图Prompter] 复制失败:', error);
+          console.error('[TuPrompt] 复制失败:', error);
       }
     });
   }
