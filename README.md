@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/tuprompt-logo.png" alt="TuPrompt Logo" width="96" />
+
 # TuPrompt
 
 **从网页图片直接生成 AI 绘图提示词的 Chrome 扩展**
@@ -42,7 +44,7 @@ TuPrompt 是一个 Chrome 扩展，用于在网页图片上右键分析画面内
 </td>
 <td align="center" width="50%">
 <strong>结果弹窗</strong><br /><br />
-<img src="docs/tuprompt-screenshot-result.png" alt="TuPrompt result popup on Pinterest" width="280" />
+<img src="docs/tuprompt-screenshot-result.jpg" alt="TuPrompt result popup on Pinterest" width="280" />
 </td>
 </tr>
 </table>

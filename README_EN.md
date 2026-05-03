@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/tuprompt-logo.png" alt="TuPrompt Logo" width="96" />
+
 # TuPrompt
 
 **A Chrome extension that turns web images into AI-ready prompts**
@@ -42,7 +44,7 @@ Its purpose is simple:
 </td>
 <td align="center" width="50%">
 <strong>Result Popup</strong><br /><br />
-<img src="docs/tuprompt-screenshot-result.png" alt="TuPrompt result popup on Pinterest" width="280" />
+<img src="docs/tuprompt-screenshot-result.jpg" alt="TuPrompt result popup on Pinterest" width="280" />
 </td>
 </tr>
 </table>
