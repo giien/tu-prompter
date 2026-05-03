@@ -32,6 +32,21 @@ Its purpose is simple:
 - reduce the time spent switching tools and manually describing visuals;
 - make the workflow from “see image -> break it down -> write prompt” faster and smoother.
 
+## 🖼️ Product Screenshots
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>Loading State</strong><br /><br />
+<img src="docs/tuprompt-screenshot-loading.jpg" alt="TuPrompt loading state on Pinterest" width="280" />
+</td>
+<td align="center" width="50%">
+<strong>Result Popup</strong><br /><br />
+<img src="docs/tuprompt-screenshot-result.png" alt="TuPrompt result popup on Pinterest" width="280" />
+</td>
+</tr>
+</table>
+
 ## 🧩 Core Features
 
 <table>

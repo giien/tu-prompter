@@ -32,6 +32,21 @@ TuPrompt 是一个 Chrome 扩展，用于在网页图片上右键分析画面内
 - 尽量减少来回切换工具和手工描述图片的时间
 - 把“看图 -> 拆解 -> 写 Prompt”这件事变得更快、更顺手
 
+## 🖼️ 产品截图
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>分析中</strong><br /><br />
+<img src="docs/tuprompt-screenshot-loading.jpg" alt="TuPrompt loading state on Pinterest" width="280" />
+</td>
+<td align="center" width="50%">
+<strong>结果弹窗</strong><br /><br />
+<img src="docs/tuprompt-screenshot-result.png" alt="TuPrompt result popup on Pinterest" width="280" />
+</td>
+</tr>
+</table>
+
 ## 🧩 核心能力
 
 <table>
