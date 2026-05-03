@@ -79,19 +79,39 @@ If this project helps you, you can support ongoing maintenance and future improv
 
 Sponsorship or donation does not grant commercial rights or a commercial license.
 
-See `SUPPORT.md` for donation options.
+### WeChat Pay / 微信赞赏
+
+![WeChat Pay QR Code](docs/wechat-donate.png)
+
+### Alipay / 支付宝赞赏
+
+![Alipay QR Code](docs/alipay-donate.jpg)
+
+See `SUPPORT.md` for more details.
 
 如果这个项目对你有帮助，欢迎支持项目维护和后续更新。
 
 赞助或捐赠不代表获得商用授权或商业许可。
 
-赞助方式请查看 `SUPPORT.md`。
+更完整的赞助说明请查看 `SUPPORT.md`。
 
 ## Community / 社区交流群
 
 If you are building AI products for cross-border or global markets, you are welcome to join the community.
 
 欢迎跨境卖家、AI 产品开发者，以及对 AI 出海产品感兴趣的朋友加入交流群。
+
+### Enterprise WeCom Group / 企业微信交流群
+
+![Enterprise WeCom Group QR Code](docs/community-wecom.jpg)
+
+### Direct Contact / 直接联系
+
+If you want to add Giien Global on WeChat for project-related communication, please include a short note about your purpose when sending the request.
+
+如果你希望添加 Giien Global 的个人微信进行项目相关沟通，请在添加好友时备注来意。
+
+![Personal WeChat Contact QR Code](docs/personal-wechat-contact.png)
 
 Community details: `COMMUNITY.md`
 
