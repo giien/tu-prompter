@@ -87,6 +87,16 @@ See `SUPPORT.md` for donation options.
 
 赞助方式请查看 `SUPPORT.md`。
 
+## Community / 社区交流群
+
+If you are building AI products for cross-border or global markets, you are welcome to join the community.
+
+欢迎跨境卖家、AI 产品开发者，以及对 AI 出海产品感兴趣的朋友加入交流群。
+
+Community details: `COMMUNITY.md`
+
+社区详情：`COMMUNITY.md`
+
 ## 隐私
 
 请查看 `PRIVACY_POLICY.md`。上架 Chrome Web Store 时，需要将隐私政策发布到一个公开可访问的 URL，并填写到开发者后台。
