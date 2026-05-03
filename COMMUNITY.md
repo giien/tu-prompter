@@ -15,6 +15,19 @@ Please keep discussions practical, respectful, and relevant to AI product buildi
 
 ![Enterprise WeCom Group QR Code](docs/community-wecom.jpg)
 
+### Direct Contact
+
+If you want to add the maintainer on WeChat for project-related communication, please include a short note about your purpose when sending the request.
+
+Examples:
+
+- repository feedback
+- collaboration
+- commercial licensing
+- product discussion
+
+![Personal WeChat Contact QR Code](docs/personal-wechat-contact.png)
+
 ---
 
 欢迎跨境卖家、AI 产品开发者、独立开发者，以及对 AI 出海产品感兴趣的朋友加入交流群。
@@ -32,3 +45,15 @@ Please keep discussions practical, respectful, and relevant to AI product buildi
 
 ![企业微信交流群二维码](docs/community-wecom.jpg)
 
+### 直接联系
+
+如果你希望添加维护者的个人微信进行项目相关沟通，请在添加好友时备注来意。
+
+例如：
+
+- 仓库反馈
+- 合作沟通
+- 商用授权
+- 产品交流
+
+![个人微信联系二维码](docs/personal-wechat-contact.png)
