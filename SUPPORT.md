@@ -6,7 +6,7 @@ If TuPrompter helps your work or learning, you can support ongoing maintenance a
 
 Sponsorship or donation does not grant commercial rights, trademark rights, or a commercial license.
 
-If you need commercial use rights, please obtain a separate commercial agreement from the copyright holder.
+If you need commercial use rights, please obtain a separate commercial agreement from Giien Global.
 
 ## Donation Options
 
@@ -28,7 +28,7 @@ Note: the donation QR codes may contain masked display names or profile images a
 
 赞助或捐赠不代表获得商用授权、商标授权或任何商业许可。
 
-如需商用，请单独获得版权所有者的商业授权。
+如需商用，请单独获得 Giien Global 的商业授权。
 
 ## 赞助方式
 

@@ -2,7 +2,7 @@
 
 This repository is source-available for learning, evaluation, and other non-commercial uses.
 
-Commercial use is not allowed without prior written permission from the copyright holder.
+Commercial use is not allowed without prior written permission from Giien Global.
 
 Commercial use includes, for example:
 
