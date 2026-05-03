@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "图Prompter",
+  "version": "1.0.0",
+  "description": "右键图片生成AI绘图提示词，支持GPT-4o/Claude/Gemini/海螺/豆包/智谱/通义/Jeniya/自定义API",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.minimax.chat/*",
+    "https://api.minimaxi.com/*",
+    "https://jeniya.cn/*",
+    "https://ark.cn-beijing.volces.com/*",
+    "https://dashscope.aliyuncs.com/*",
+    "https://qwenlm.ai/*",
+    "https://open.bigmodel.cn/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+TuPrompter Non-Commercial Public Source License 1.0
+
+Copyright (c) 2026 TuPrompter contributors
+
+1. Grant of Rights
+
+You may:
+
+- view, read, and study the source code;
+- fork this repository for personal, educational, evaluation, or internal non-commercial use;
+- modify the source code for personal, educational, evaluation, or internal non-commercial use;
+- share unmodified or modified copies of the source code for non-commercial purposes only, provided that this license and all copyright notices are included.
+
+2. Non-Commercial Restriction
+
+You may not, without prior written permission from the copyright holder:
+
+- sell this software or any modified version of it;
+- use this software or any modified version of it in a paid product, paid service, or commercial offering;
+- provide this software as part of a service offered to customers, clients, or users for a fee or other commercial advantage;
+- sublicense, white-label, or redistribute this software for commercial purposes;
+- use this software to build, operate, or support a commercial browser extension, SaaS product, API product, or other commercial software offering.
+
+3. Attribution
+
+If you redistribute this software or a modified version for allowed non-commercial purposes, you must retain:
+
+- this license file;
+- all copyright, attribution, and notice files;
+- a clear notice describing any material changes you made.
+
+4. No Trademark License
+
+This license does not grant any right to use the project name, branding, logos, icons, or associated trade dress except as necessary for truthful attribution.
+
+5. Reservation of Rights
+
+All rights not expressly granted by this license are reserved by the copyright holder.
+
+6. Commercial Licensing
+
+If you want to use this software commercially, you must obtain separate written permission or a commercial license from the copyright holder.
+
+7. Disclaimer
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

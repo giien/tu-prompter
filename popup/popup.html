@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      color-scheme: dark;
+      --bg: #101115;
+      --panel: rgba(255,255,255,0.055);
+      --panel-strong: rgba(255,255,255,0.085);
+      --line: rgba(255,255,255,0.08);
+      --muted: rgba(255,255,255,0.42);
+      --text: rgba(255,255,255,0.9);
+      --blue: #4aa3ff;
+      --blue-bg: rgba(10,132,255,0.18);
+    }
+    body {
+      width: 372px;
+      max-height: 620px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(10,132,255,0.16), transparent 34%),
+        radial-gradient(circle at 100% 18%, rgba(180,90,255,0.12), transparent 28%),
+        linear-gradient(180deg, #17181d 0%, var(--bg) 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      user-select: none;
+    }
+    body::-webkit-scrollbar { width: 8px; }
+    body::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+    }
+
+    .ph {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+    .ph h1 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+    .ph p { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+    .div { height: 1px; background: transparent; }
+    .settings-section,
+    .history-section {
+      padding: 14px 16px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.64);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .template-chip {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .template-chip:hover {
+      transform: translateY(-1px);
+      background: var(--panel-strong);
+      color: rgba(255,255,255,0.9);
+    }
+    .template-chip.active {
+      border-color: rgba(74,163,255,0.58);
+      background: linear-gradient(180deg, rgba(10,132,255,0.28), rgba(10,132,255,0.15));
+      color: #d7ecff;
+      box-shadow:
+        0 8px 22px rgba(10,132,255,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .settings-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .status-text {
+      margin-top: 8px;
+      min-height: 16px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    /* 模型列表 */
+    .model-list { padding: 2px 16px 14px; }
+    .model-item {
+      display: flex; align-items: center;
+      min-height: 58px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .model-item:hover {
+      background: rgba(255,255,255,0.045);
+      border-color: rgba(255,255,255,0.055);
+    }
+    .model-item.active {
+      background: var(--blue-bg);
+      border-color: rgba(74,163,255,0.24);
+    }
+    .model-item .icon {
+      width: 34px; height: 34px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0;
+      flex-shrink: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .model-item .info { flex: 1; }
+    .model-item .name { font-size: 13px; font-weight: 720; color: rgba(255,255,255,0.88); letter-spacing: -0.1px; }
+    .model-item.active .name { color: #d7ecff; }
+    .model-item .vendor { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .model-item .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .model-item .dot.ok { background: #30D158; box-shadow: 0 0 6px rgba(48,209,88,0.5); }
+    .model-item .dot.empty { background: rgba(255,255,255,0.15); }
+    .model-item .arrow { color: rgba(255,255,255,0.2); font-size: 14px; transition: transform 0.2s; }
+    .model-item.active .arrow { transform: rotate(90deg); color: #0A84FF; }
+
+    /* Key 输入区（选中后展开） */
+    .key-panel {
+      display: none;
+      overflow: hidden;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--line);
+      margin: -2px 4px 8px 46px;
+      border-radius: 14px;
+    }
+    .key-panel.open {
+      display: block;
+      padding: 12px;
+      animation: slideDown 0.22s ease;
+    }
+    @keyframes slideDown {
+      from { max-height: 0; opacity: 0; }
+      to { max-height: 260px; opacity: 1; }
+    }
+    .key-panel label {
+      display: block;
+      font-size: 10px; color: var(--muted);
+      margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .key-panel input {
+      width: 100%;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 13px;
+      color: #fff;
+      font-size: 12px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+      outline: none;
+      transition: border-color 0.15s;
+      box-sizing: border-box;
+    }
+    .key-panel input:focus { border-color: #0A84FF; }
+    .key-panel input::placeholder { color: rgba(255,255,255,0.18); }
+    .key-panel .field { margin-bottom: 10px; }
+    .key-panel .field:last-child { margin-bottom: 0; }
+    .key-panel .hint {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.28);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+    .link-btn {
+      border: none;
+      background: transparent;
+      color: var(--blue);
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .history-list {
+      display: grid;
+      gap: 8px;
+    }
+    .history-empty {
+      color: rgba(255,255,255,0.28);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .history-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+      padding: 10px;
+    }
+    .history-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 10px;
+      margin-bottom: 6px;
+    }
+    .history-text {
+      color: rgba(255,255,255,0.78);
+      font-size: 11px;
+      line-height: 1.45;
+      max-height: 48px;
+      overflow: hidden;
+    }
+    .history-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .mini-btn {
+      flex: 1;
+      min-height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      color: rgba(255,255,255,0.84);
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .mini-btn.success {
+      background: rgba(72, 187, 120, 0.24);
+      color: #c7ffd8;
+    }
+    .mini-btn:hover { background: var(--panel-strong); }
+    .mini-btn.danger {
+      color: #ffb1aa;
+    }
+
+    .footer { padding: 8px 16px 14px; text-align: center; font-size: 11px; color: rgba(255,255,255,0.22); }
+    #debug-context-menu {
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.42);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    #debug-context-menu:hover {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.72);
+    }
+  </style>
+</head>
+<body>
+
+<div class="ph">
+  <h1>🎯 图Prompter</h1>
+  <p>右键图片 · AI 生成绘图提示词</p>
+</div>
+<div class="div"></div>
+
+<div class="settings-section">
+  <div class="section-title">Prompt 模板</div>
+  <div class="template-grid" id="prompt-template">
+    <button class="template-chip" type="button" data-template="general">通用图片</button>
+    <button class="template-chip" type="button" data-template="ecommerce">电商摄影</button>
+    <button class="template-chip" type="button" data-template="poster">海报广告</button>
+    <button class="template-chip" type="button" data-template="interior">室内建筑</button>
+    <button class="template-chip" type="button" data-template="character">角色设定</button>
+    <button class="template-chip" type="button" data-template="ui">UI 灵感</button>
+  </div>
+  <div class="settings-actions">
+    <button class="mini-btn" id="test-model" type="button">测试当前模型</button>
+  </div>
+  <div class="status-text" id="test-status"></div>
+</div>
+<div class="div"></div>
+
+<div class="model-list">
+  <div class="section-title">模型配置</div>
+  <div class="model-item" data-model="gpt4o">
+    <div class="icon" style="background:rgba(64,200,64,0.15)">🟠</div>
+    <div class="info">
+      <div class="name">GPT-4o</div>
+      <div class="vendor">OpenAI</div>
+    </div>
+    <div class="dot empty" id="dot-gpt4o"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-gpt4o">
+    <label>API Key</label>
+    <input type="password" id="key-gpt4o" placeholder="sk-..." />
+  </div>
+
+  <div class="model-item" data-model="claude">
+    <div class="icon" style="background:rgba(180,100,255,0.15)">🟣</div>
+    <div class="info">
+      <div class="name">Claude 3.5 Sonnet</div>
+      <div class="vendor">Anthropic</div>
+    </div>
+    <div class="dot empty" id="dot-claude"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-claude">
+    <label>API Key</label>
+    <input type="password" id="key-claude" placeholder="sk-ant-..." />
+  </div>
+
+  <div class="model-item" data-model="gemini">
+    <div class="icon" style="background:rgba(100,180,255,0.15)">🟢</div>
+    <div class="info">
+      <div class="name">Gemini 2.0 Flash</div>
+      <div class="vendor">Google</div>
+    </div>
+    <div class="dot empty" id="dot-gemini"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-gemini">
+    <label>API Key</label>
+    <input type="password" id="key-gemini" placeholder="AIza..." />
+  </div>
+
+  <div class="model-item" data-model="hailuo">
+    <div class="icon" style="background:rgba(255,200,50,0.15)">🟡</div>
+    <div class="info">
+      <div class="name">海螺 (Hailuo)</div>
+      <div class="vendor">Minimax</div>
+    </div>
+    <div class="dot empty" id="dot-hailuo"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-hailuo">
+    <div class="field">
+      <label>API Key (Bearer Token)</label>
+      <input type="password" id="key-hailuo" placeholder="eyJhbG..." />
+    </div>
+    <div class="field">
+      <label>Endpoint URL</label>
+      <input type="text" id="endpoint-hailuo" placeholder="默认：https://api.minimaxi.com/anthropic/v1/messages" />
+    </div>
+    <div class="field">
+      <label>Model Name</label>
+      <input type="text" id="model-hailuo" placeholder="默认：MiniMax-M2.7" />
+    </div>
+    <div class="hint">Token Plan 走 Anthropic 兼容接口；如果官方给了其他视觉接口，可在这里覆盖。</div>
+  </div>
+
+  <div class="model-item" data-model="doubao">
+    <div class="icon" style="background:rgba(80,150,255,0.15)">🔵</div>
+    <div class="info">
+      <div class="name">豆包 (Doubao)</div>
+      <div class="vendor">字节·火山引擎</div>
+    </div>
+    <div class="dot empty" id="dot-doubao"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-doubao">
+    <label>API Key (Bearer Token)</label>
+    <input type="password" id="key-doubao" placeholder="ek-..." />
+  </div>
+
+  <div class="model-item" data-model="zhipu">
+    <div class="icon" style="background:rgba(255,110,110,0.15)">🔴</div>
+    <div class="info">
+      <div class="name">智谱 GLM-4V</div>
+      <div class="vendor">智谱 AI</div>
+    </div>
+    <div class="dot empty" id="dot-zhipu"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-zhipu">
+    <label>API Key (Bearer Token)</label>
+    <input type="password" id="key-zhipu" placeholder="token-..." />
+  </div>
+
+  <div class="model-item" data-model="qwen">
+    <div class="icon" style="background:rgba(200,150,100,0.15)">🟤</div>
+    <div class="info">
+      <div class="name">通义千问 VL</div>
+      <div class="vendor">阿里·云·百炼</div>
+    </div>
+    <div class="dot empty" id="dot-qwen"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-qwen">
+    <label>API Key (Bearer Token)</label>
+    <input type="password" id="key-qwen" placeholder="sk-..." />
+  </div>
+
+  <div class="model-item" data-model="jeniya">
+    <div class="icon" style="background:rgba(100,180,255,0.15)">🧩</div>
+    <div class="info">
+      <div class="name">Jeniya Gemini</div>
+      <div class="vendor">Gemini 2.5 Pro 图片理解</div>
+    </div>
+    <div class="dot empty" id="dot-jeniya"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-jeniya">
+    <label>API Key (Bearer Token / key)</label>
+    <input type="password" id="key-jeniya" placeholder="Bearer token / key" />
+    <div class="hint">接口：jeniya.cn/v1beta/models/gemini-2.5-pro:generateContent，按 Gemini 原生 inline_data 格式发送图片。</div>
+  </div>
+
+  <div class="model-item" data-model="custom">
+    <div class="icon" style="background:rgba(10,132,255,0.15)">⚙️</div>
+    <div class="info">
+      <div class="name">自定义 API</div>
+      <div class="vendor">OpenAI 兼容视觉接口</div>
+    </div>
+    <div class="dot empty" id="dot-custom"></div>
+    <div class="arrow">›</div>
+  </div>
+  <div class="key-panel" id="panel-custom">
+    <div class="field">
+      <label>Endpoint URL</label>
+      <input type="text" id="endpoint-custom" placeholder="https://example.com/v1/chat/completions" />
+    </div>
+    <div class="field">
+      <label>Model Name</label>
+      <input type="text" id="model-custom" placeholder="gpt-4o / qwen-vl-plus / your-model" />
+    </div>
+    <div class="field">
+      <label>API Key (Bearer Token)</label>
+      <input type="password" id="key-custom" placeholder="sk-..." />
+    </div>
+    <div class="hint">请求格式：OpenAI chat/completions，图片用 image_url + data URL 传入。</div>
+  </div>
+</div>
+
+<div class="div"></div>
+<div class="history-section">
+  <div class="section-title">
+    <span>最近生成</span>
+    <button class="link-btn" id="clear-history" type="button">清空</button>
+  </div>
+  <div class="history-list" id="history-list">
+    <div class="history-empty">还没有历史记录。生成一次 Prompt 后会显示在这里。</div>
+  </div>
+</div>
+<div class="div"></div>
+<div class="footer">
+  <span>支持 Midjourney / Stable Diffusion / DALL-E / Adobe Firefly</span>
+  <br/>
+  <button id="debug-context-menu">调试说明</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
