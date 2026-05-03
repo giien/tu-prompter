@@ -1,19 +1,33 @@
-# 图Prompter
+# 图Prompter / TuPrompter
 
 Source-available Chrome extension for generating AI image prompts from web images.
 
 Non-commercial use only. See `LICENSE` for details.
 
+**English** | **简体中文**
+
+---
+
+# 简体中文
+
+## 项目介绍
+
 图Prompter 是一个 Chrome 扩展，用于在网页图片上右键分析画面内容，并生成适合 Midjourney、Stable Diffusion、DALL-E、Adobe Firefly 等 AI 绘图工具使用的提示词。
 
-## 功能
+它的目标很直接：
+
+- 让你在浏览灵感图、商品图、海报图、Pinterest 图片时，直接生成可用的 AI 提示词
+- 尽量减少来回切换工具和手工描述图片的时间
+- 把“看图 -> 拆解 -> 写 Prompt”这件事变得更快、更顺手
+
+## 核心功能
 
 - 在网页图片上右键生成 AI 绘图提示词
 - 支持英文 Prompt 和中文注释分区显示
 - 支持一键复制英文 Prompt、中文注释或完整结果
 - 支持多个视觉模型和 API 网关
 - 支持自定义 OpenAI 兼容视觉 API
-- 适配 Pinterest 等图片平台的懒加载图片、高清 srcset 图片和背景图
+- 适配 Pinterest 等图片平台的懒加载图片、高清 `srcset` 图片和背景图
 
 ## 支持的模型入口
 
@@ -54,7 +68,7 @@ node --check popup/popup.js
 
 ## 发布打包
 
-发布前请确认不包含 `.git`、临时文件、测试截图、私有 API Key 等内容。可将以下文件和目录打包为 zip：
+发布前请确认不包含 `.git`、临时文件、测试截图、私有 API Key 等内容。建议打包时只包含：
 
 - `manifest.json`
 - `background/`
@@ -73,50 +87,155 @@ node --check popup/popup.js
 
 详细条款请查看 `LICENSE` 和 `COMMERCIAL_USE.md`。
 
-## Support / 支持项目
-
-If this project helps you, you can support ongoing maintenance and future improvements.
-
-Sponsorship or donation does not grant commercial rights or a commercial license.
-
-### WeChat Pay / 微信赞赏
-
-![WeChat Pay QR Code](docs/wechat-donate.png)
-
-### Alipay / 支付宝赞赏
-
-![Alipay QR Code](docs/alipay-donate.jpg)
-
-See `SUPPORT.md` for more details.
+## 支持项目
 
 如果这个项目对你有帮助，欢迎支持项目维护和后续更新。
 
 赞助或捐赠不代表获得商用授权或商业许可。
 
+### 微信赞赏
+
+<img src="docs/wechat-donate.png" alt="WeChat Pay QR Code" width="180" />
+
+### 支付宝赞赏
+
+<img src="docs/alipay-donate.jpg" alt="Alipay QR Code" width="180" />
+
 更完整的赞助说明请查看 `SUPPORT.md`。
 
-## Community / 社区交流群
-
-If you are building AI products for cross-border or global markets, you are welcome to join the community.
+## 社区交流群
 
 欢迎跨境卖家、AI 产品开发者，以及对 AI 出海产品感兴趣的朋友加入交流群。
 
-### Enterprise WeCom Group / 企业微信交流群
+### 企业微信交流群
 
-![Enterprise WeCom Group QR Code](docs/community-wecom.jpg)
+<img src="docs/community-wecom.jpg" alt="Enterprise WeCom Group QR Code" width="180" />
 
-### Direct Contact / 直接联系
-
-If you want to add Giien Global on WeChat for project-related communication, please include a short note about your purpose when sending the request.
+### 直接联系
 
 如果你希望添加 Giien Global 的个人微信进行项目相关沟通，请在添加好友时备注来意。
 
-![Personal WeChat Contact QR Code](docs/personal-wechat-contact.png)
+<img src="docs/personal-wechat-contact.png" alt="Personal WeChat Contact QR Code" width="180" />
 
-Community details: `COMMUNITY.md`
-
-社区详情：`COMMUNITY.md`
+社区详情请查看 `COMMUNITY.md`。
 
 ## 隐私
 
 请查看 `PRIVACY_POLICY.md`。上架 Chrome Web Store 时，需要将隐私政策发布到一个公开可访问的 URL，并填写到开发者后台。
+
+---
+
+# English
+
+## Overview
+
+TuPrompter is a Chrome extension for analyzing images on the web and generating prompts that can be used with tools such as Midjourney, Stable Diffusion, DALL-E, and Adobe Firefly.
+
+Its purpose is simple:
+
+- help you generate usable prompts directly from inspiration images, product images, posters, and Pinterest content;
+- reduce the time spent switching tools and manually describing visuals;
+- make the workflow from “see image -> break it down -> write prompt” faster and smoother.
+
+## Core Features
+
+- right-click on web images to generate AI image prompts
+- separate display for English prompts and Chinese annotations
+- one-click copy for the English prompt, Chinese notes, or the full result
+- support for multiple vision model providers and API gateways
+- support for custom OpenAI-compatible vision APIs
+- support for lazy-loaded images, high-resolution `srcset` images, and background images on sites such as Pinterest
+
+## Supported Model Entrypoints
+
+- GPT-4o
+- Claude
+- Gemini
+- Hailuo Minimax
+- Doubao
+- Zhipu GLM-4V
+- Qwen VL
+- Jeniya Gemini
+- Custom API
+
+## Usage
+
+1. Enable Developer Mode in Chrome Extensions.
+2. Choose “Load unpacked” and load this project folder.
+3. Click the extension icon and configure the API key for the model you want to use.
+4. Open any webpage and right-click an image.
+5. Choose a model under the “图Prompter” menu.
+6. Copy the generated English prompt or Chinese annotation from the result popup.
+
+## Data Flow
+
+TuPrompter does not use its own backend server. When the user explicitly triggers image analysis, the extension reads the selected image URL or image data from the current page and sends it to the selected third-party AI provider API. API keys are stored in Chrome extension storage and used only for requests to the chosen provider.
+
+## Local Development
+
+This is a native Chrome Manifest V3 extension with no build step. After changing code, reload the extension in Chrome Extensions to test it.
+
+You can validate script syntax with:
+
+```bash
+node --check background/service-worker.js
+node --check content/content.js
+node --check popup/popup.js
+```
+
+## Packaging
+
+Before packaging, make sure the repository does not include `.git`, temporary files, screenshots, or private API keys. The zip package should normally include:
+
+- `manifest.json`
+- `background/`
+- `content/`
+- `popup/`
+- `icons/`
+
+## License and Usage Scope
+
+This repository uses a custom non-commercial source-available license.
+
+- viewing, learning, forking, and modifying the code is allowed
+- personal, educational, evaluation, and other non-commercial uses are allowed
+- unauthorized commercial use is not allowed
+- using this project or modified versions in paid products, paid services, white-label distributions, or other commercial contexts is not allowed
+
+See `LICENSE` and `COMMERCIAL_USE.md` for details.
+
+## Support
+
+If this project helps you, you can support ongoing maintenance and future improvements.
+
+Sponsorship or donation does not grant commercial rights or a commercial license.
+
+### WeChat Pay
+
+<img src="docs/wechat-donate.png" alt="WeChat Pay QR Code" width="180" />
+
+### Alipay
+
+<img src="docs/alipay-donate.jpg" alt="Alipay QR Code" width="180" />
+
+See `SUPPORT.md` for more details.
+
+## Community
+
+If you are building AI products for cross-border or global markets, you are welcome to join the community.
+
+### Enterprise WeCom Group
+
+<img src="docs/community-wecom.jpg" alt="Enterprise WeCom Group QR Code" width="180" />
+
+### Direct Contact
+
+If you want to add Giien Global on WeChat for project-related communication, please include a short note about your purpose when sending the request.
+
+<img src="docs/personal-wechat-contact.png" alt="Personal WeChat Contact QR Code" width="180" />
+
+See `COMMUNITY.md` for more details.
+
+## Privacy
+
+See `PRIVACY_POLICY.md`. For Chrome Web Store publishing, the privacy policy must also be published at a publicly accessible URL and submitted in the developer console.
